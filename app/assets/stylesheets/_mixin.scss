@@ -1,0 +1,22 @@
+$colorBlack: #000;
+$colorWhite: #fff;
+$colorBlue: #38aef0;
+$white: #fff;
+$side_blue_dark: #253141;
+$side_blue_light: #2f3e51;
+$light_blue: #38AEF0;
+$light_gray: #999;
+$black: #434a54;
+$alert_orange: #F35500;
+
+@mixin mainWidth() {
+  width: calc(100vw - 300px);
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

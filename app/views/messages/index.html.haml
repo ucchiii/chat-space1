@@ -1,0 +1,41 @@
+.flash-box
+  .alert
+    グループを作成しました
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p{class: "side-header__box--user-name"}
+          test1
+        %ul{class: "side-header__box__menu"}
+          %li
+            %a{href: "#"}
+              %i{class: "fa fa-edit"}
+          %li
+            %a{href: "#"}
+              %i{class: "fa fa-cog"}
+    .groups
+      = render partial: 'group'
+
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2{class: "main-header__left-box--current-group"}
+          test
+        %ul{class: "main-header__left-box__member-list"}
+          Member：
+          %li
+            test1
+      %a{href: "#"}
+        .edit-btn
+          Edit
+    .messages
+      = render partial: 'message'
+    .form
+      %form{class: "form__new-message"}
+        .input-box
+          %input{class: "input-box__text", type: "text", placeholder: "type a message"}
+          %label{class: "input-box__image"}
+            %i{class: "fa fa-image"}
+            %input{class: "input-box__image__file", type: "file", name: "image"}
+        %input{class: "submit-btn", type: "submit", value: "Send"}
