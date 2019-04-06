@@ -1,0 +1,20 @@
+.groups {
+  height: calc(100vh - 100px);
+  background: #2f3e51;
+  padding: 20px 20px 0;
+  overflow: scroll;
+  a {
+    color: $colorWhite;
+    text-decoration: none;
+    .group {
+      margin-bottom: 40px;
+      &--group-name{
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &--latest-message{
+        font-size: 11px;
+      }
+    }
+  }
+}

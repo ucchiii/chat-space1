@@ -1,1 +1,32 @@
+@import "./font-awesome";
+
 @import "./reset";
+@import "./variable";
+@import "./mixin";
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html, body{
+  height: 100;
+  @import "./index/flash-box";
+  .wrapper {
+    display: flex;
+    box-sizing: border-box;
+    .chat-side {
+      width: 300px;
+      color: $colorWhite;
+      height:100%;
+      box-sizing: border-box;
+      @import "./index/side-header";
+      @import "./index/side-groups";
+    }
+    .chat-main {
+      box-sizing: border-box;
+      @import "./index/main-header";
+      @import "./index/main-messages";
+      @import "./index/main-form";
+    }
+  }
+}
+
