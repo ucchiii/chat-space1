@@ -1,28 +1,12 @@
-.flash-box
-  .alert
-    グループを作成しました
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p{class: "side-header__box--user-name"}
-          = current_user.name
-        %ul{class: "side-header__box__menu"}
-          %li
-            = link_to edit_user_path(current_user) do
-              %i.fa.fa-edit
-          %li
-            = link_to edit_user_path(current_user) do
-              = fa_icon 'cog', class: 'icon'
-    .groups
-      = render partial: 'group'
+  = render 'chat-side'
 
   .chat-main
     .main-header
       .main-header__left-box
-        %h2{class: "main-header__left-box--current-group"}
+        %h2.main-header__left-box--current-group
           test
-        %ul{class: "main-header__left-box__member-list"}
+        %ul.main-header__left-box__member-list
           Member：
           %li
             test1
@@ -32,10 +16,10 @@
     .messages
       = render partial: 'message'
     .form
-      %form{class: "form__new-message"}
+      %form.form__new-message
         .input-box
-          %input{class: "input-box__text", type: "text", placeholder: "type a message"}
-          %label{class: "input-box__image"}
-            %i{class: "fa fa-image"}
-            %input{class: "input-box__image__file", type: "file", name: "image"}
-        %input{class: "submit-btn", type: "submit", value: "Send"}
+          %input.input-box__text{type: "text", placeholder: "type a message"}
+          %label.input-box__image
+            %i.fa.fa-image
+            %input.input-box__image__file{type: "file", name: "image"}
+        %input.submit-btn{type: "submit", value: "Send"}
