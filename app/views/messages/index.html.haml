@@ -14,7 +14,7 @@
         .edit-btn
           Edit
     .messages
-      = render partial: 'message'
+      = render @messages
 
     .form
       = form_for [@group, @message] do |f|

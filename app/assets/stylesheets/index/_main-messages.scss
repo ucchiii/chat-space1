@@ -19,10 +19,12 @@
         margin-left: 10px;
       }
     }
-    &--text{
-      color: #434a54;
-      font-size: 14px;
-      margin-bottom: 10px;
+    .lower-message{
+      &__content{
+        color: #434a54;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
     }
   }
 }
