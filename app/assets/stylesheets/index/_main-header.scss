@@ -18,14 +18,13 @@
     }
   }
   a{
+    display:block;
     text-decoration: none;
     color: $colorBlue;
-    .edit-btn{
-      height: 40px;
-      line-height: 40px;
-      padding: 0 20px;
-      margin-top: 30px;
-      border: solid 1px $colorBlue;
-    }
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 30px;
+    border: solid 1px $colorBlue;
   }
 }
