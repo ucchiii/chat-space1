@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(message){
-    console.log("hellow")
     var content = message.content ? `${ message.content }` : "";
     var img = message.image_url ? `<img src= ${ message.image_url } class="lower-message__image", width="300px">` : "";
     var html = `<div class="message">
