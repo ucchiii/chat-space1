@@ -5,11 +5,11 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box--current-group
-          test
+          = current_user.groups.name
         %ul.main-header__left-box__member-list
           Member：
           %li
-            test1
+            = current_user.name
       %a{href: "#"}
         .edit-btn
           Edit
@@ -23,4 +23,4 @@
           = f.label :image, class: 'input-box__image' do
             = fa_icon 'picture-o'
             = f.file_field :image, class: 'input-box__image__file'
-        = f.submit 'Send', class: 'submit-btn'
+        = f.submit 'Send', class: 'submit-btn' ,id: 'submit-btn'
