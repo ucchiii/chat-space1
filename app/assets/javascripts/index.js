@@ -36,11 +36,9 @@ $(function() {
       contentType: false
     })
     .done(function(data){
-      console.log(data)
       $('#user-search-result').empty();
       if (data.length !== 0) {
         data.forEach(function(data){
-          console.log(data)
           html = buildUsersHTML(data);
         });
       }
