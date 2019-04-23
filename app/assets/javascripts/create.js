@@ -2,8 +2,8 @@ $(function(){
   function buildHTML(message){
     var content = message.content ? `${ message.content }` : "";
     var img = message.image_url ? `<img src= ${ message.image_url } class="lower-message__image", width="300px">` : "";
-    var html = `<div class="message">
-                  <div class="message__upper-info" data-id="${message.id}">
+    var html = `<div class="message" data-message-id="${message.id}">
+                  <div class="message__upper-info">
                     <div class="message__upper-info--talker">
                       ${ message.user_name }
                     </div>
