@@ -5,14 +5,13 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box--current-group
-          = current_user.groups.name
+          = @group.name
         %ul.main-header__left-box__member-list
           Member：
           %li
-            = current_user.name
-      %a{href: "#"}
-        .edit-btn
-          Edit
+            - @group.users.select("id") do |user|
+              = user.name
+      = link_to "Edit", 'edit'
     .messages
       = render @messages
 
