@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks jQueryがリロードしないと動かないので削除
 //= require_tree .

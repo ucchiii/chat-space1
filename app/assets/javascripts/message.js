@@ -1,7 +1,7 @@
-$(function(){
-  function buildHTML(message){
+$(function() {
+  var buildMessageHTML = function(message) {
     var content = message.content ? `${ message.content }` : "";
-    var img = message.image_url ? `<img src= ${ message.image_url } class="lower-message__image", width="300px">` : "";
+    var img = message.image ? `<img src= ${ message.image } class="lower-message__image", width="300px">` : "";
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
                     <div class="message__upper-info--talker">
@@ -19,37 +19,36 @@ $(function(){
                   </div>
                 </div>`
     return html;
-  }
-
-  function scrollBottom(){
+  };
+    function scrollBottom(){
     var target = $('.message').last();
     var position = target.offset().top + $('.messages').scrollTop();
     $('.messages').animate({
       scrollTop: position
     }, 300, 'swing');
   }
-  $('#new_message').on('submit', function(e){
-    e.preventDefault();
-    var form = new FormData($('#new_message').get(0));
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').attr('data-message-id');
+    var groupId = $(".main-header__left-box--current-group").attr("data-group-id")
     $.ajax({
-      url: location.href,
-      type: "POST",
-      data: form,
+      url: "/groups/" + groupId + "/api/messages",
+      type: 'get',
       dataType: 'json',
-      processData: false,
-      contentType: false
+      data:{
+        id: last_message_id
+      } 
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.input-box__text').val('')
-      scrollBottom();
+    .done(function(data) {
+      if (data.length !== 0) {
+        data.forEach(function(data){
+          html = buildMessageHTML(data);
+        });
+        $('.messages').append(html)
+        scrollBottom();
+      }
     })
-    .fail(function(data){
-      alert('エラーが発生したためメッセージは送信できませんでした。');
-    })
-    .always(function(data){
-      $('.submit-btn').prop('disabled', false);
-    })
-  })
-})
+    .fail(function() {
+    });
+  };
+  setInterval(reloadMessages, 10000);
+});
