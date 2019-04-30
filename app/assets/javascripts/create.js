@@ -43,6 +43,7 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.input-box__text').val('')
+      $('.input-box__image__file').val('')
       scrollBottom();
     })
     .fail(function(data){
